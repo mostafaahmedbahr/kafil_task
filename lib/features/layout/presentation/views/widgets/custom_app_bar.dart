@@ -1,55 +1,49 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+  import 'package:kafil_task/core/utils/app_styles/app_styles.dart';
 
-import '../../../../../core/shared_widgets/custom_text_form_filed.dart';
-import '../../../../../core/utils/app_colors/app_colors.dart';
 
 
 //ignore: must_be_immutable
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
-  final List<Widget>? actionList;
-  final Widget? leading;
-  final Color? backgroundColor;
-  final Color? color;
-  final String? leadingImage;
-  void Function()? onPressed;
+  final bool isLoginScreen;
 
-    CustomAppBar(
+
+    const CustomAppBar(
       {Key? key,
-        this.title,
-      this.leading,
-      this.actionList,
-      this.backgroundColor,
-      this.onPressed,
-      this.leadingImage,
-      this.color})
+        this.title, required this.isLoginScreen,
+      })
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return PreferredSize(
-        preferredSize: const Size.fromHeight(100),
+        preferredSize: const Size.fromHeight(60),
         child: AppBar(
+          centerTitle: false,
           backgroundColor: Colors.transparent,
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color(0xFF0D4B74),
-                  Color(0xFF075E89),
-                ],
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
-              ),
-            ),
-          ),
           elevation: 0,
+          title: Row(
+            children: [
+              if(isLoginScreen != false)
+              IconButton(
+                  onPressed: (){
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(Icons.arrow_back_ios_new,
+                  size: 15,),
+              ),
+                Text(
+                  title ?? "",
+              style: AppStyles.textStyle18Black800,
+              ),
+            ],
+          ),
         ));
   }
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => const Size.fromHeight(100);
+  Size get preferredSize => const Size.fromHeight(60);
 }

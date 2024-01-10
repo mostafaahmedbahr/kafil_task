@@ -11,7 +11,7 @@ class LayoutView extends StatelessWidget {
   Widget build(BuildContext context) {
     return   SafeArea(
       child: Scaffold(
-        appBar:   CustomAppBar(),
+        // appBar:   CustomAppBar(),
         body:   const LayoutViewBody(),
         bottomNavigationBar: const  CustomBottomNavigationBar(),
       ),

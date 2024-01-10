@@ -31,23 +31,23 @@ class CustomBottomNavigationBar extends StatelessWidget {
             layoutCubit.changePageIndexInCubit(pageIndex: index);
           },
           items:   [
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(AppImages. ,
-              color: LayoutCubit.newPageIndex == 0 ? AppColors.mainColor : AppColors.greyColor,
-              ),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon:  SvgPicture.asset(AppImages.servicesIcon,
-                color: LayoutCubit.newPageIndex == 1 ? AppColors.mainColor : AppColors.greyColor,),
-              label: 'Services',
-            ),
-            BottomNavigationBarItem(
-              icon:  SvgPicture.asset(AppImages.favIcon,
-                color: LayoutCubit.newPageIndex == 2 ? AppColors.mainColor : AppColors.greyColor,
-              ),
-              label: 'Favorite',
-            ),
+            // BottomNavigationBarItem(
+            //   icon: SvgPicture.asset(AppImages. ,
+            //   color: LayoutCubit.newPageIndex == 0 ? AppColors.mainColor : AppColors.greyColor,
+            //   ),
+            //   label: 'Home',
+            // ),
+            // BottomNavigationBarItem(
+            //   icon:  SvgPicture.asset(AppImages.servicesIcon,
+            //     color: LayoutCubit.newPageIndex == 1 ? AppColors.mainColor : AppColors.greyColor,),
+            //   label: 'Services',
+            // ),
+            // BottomNavigationBarItem(
+            //   icon:  SvgPicture.asset(AppImages.favIcon,
+            //     color: LayoutCubit.newPageIndex == 2 ? AppColors.mainColor : AppColors.greyColor,
+            //   ),
+            //   label: 'Favorite',
+            // ),
               BottomNavigationBarItem(
               icon: Icon(Icons.person ,
                 color: LayoutCubit.newPageIndex == 3 ? AppColors.mainColor : AppColors.greyColor,
