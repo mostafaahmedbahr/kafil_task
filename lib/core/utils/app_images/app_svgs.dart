@@ -1,5 +1,5 @@
 class AppSvgs{
 
-  static const String logo = "assets/images/logo.png";
+   static const String cart = "assets/images/svgs/cart.svg";
 
 }

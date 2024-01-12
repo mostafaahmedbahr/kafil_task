@@ -6,7 +6,6 @@ class CustomButton extends StatelessWidget {
   const CustomButton({Key? key,   this.height,   this.width,     this.btnColor, required this.btnText,required this.onPressed,   this.borderColor, this.radius}) : super(key: key);
   final double? height;
   final double? width;
-
   final Color? btnColor;
   final Color? borderColor;
   final double? radius;
@@ -16,16 +15,13 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return    SizedBox(
-      height: height ?? 60,
+      height: height ?? 56,
       width: width,
       child:  ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(radius ?? 10) ,
-              bottomRight:Radius.circular(radius ?? 10) ,
-            ),
+            borderRadius: BorderRadius.circular(15),
               side:   BorderSide(
                 width: 1.0,
                 color:borderColor ?? AppColors.mainColor,

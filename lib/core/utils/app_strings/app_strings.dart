@@ -30,5 +30,11 @@ class AppStrings{
 
 
 
+  /// strings in services screen
+   static const String des = "Logo Design -Graphic Design Graphic Design";
+   static const String popularServices = "Popular Services";
+
+
+
 
 }

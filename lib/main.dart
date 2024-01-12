@@ -9,6 +9,7 @@ import 'core/utils/app_services/remote_services/service_locator.dart';
 import 'core/utils/bloc_observer.dart';
 import 'features/layout/data/repos/layout_repo_implementation.dart';
 import 'features/layout/presentation/view_model/layout_cubit.dart';
+import 'features/services/presentation/views/services_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         ),
         title: 'Task',
         debugShowCheckedModeBanner: false,
-        home: const RegisterView(),
+        home: const ServicesView(),
         builder: (context, child) => ResponsiveWrapper.builder(
           BouncingScrollWrapper.builder(context, child!),
           maxWidth: 1200,
