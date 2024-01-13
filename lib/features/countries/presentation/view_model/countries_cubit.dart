@@ -9,5 +9,15 @@ class CountriesCubit extends Cubit<CountriesStates> {
   static CountriesCubit get(context) => BlocProvider.of(context);
   CountriesRepo? countriesRepo;
 
+  Future<void> getAllCountriesData() async {
+    emit(GetAllCountriesLoadingState());
+    var result = await countriesRepo!.getAllCountries();
+    return result.fold((failure) {
+      emit(GetAllCountriesErrorState(failure.errMessage));
+      print(failure.errMessage);
+    }, (data) {
+      emit(GetAllCountriesSuccessState(data));
+    });
+  }
 
 }
