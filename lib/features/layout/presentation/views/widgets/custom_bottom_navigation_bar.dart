@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kafil_task/core/utils/app_images/app_svgs.dart';
+import 'package:kafil_task/core/utils/app_strings/app_strings.dart';
 
 import '../../../../../core/utils/app_colors/app_colors.dart';
 import '../../../../../core/utils/app_images/app_images.dart';
@@ -31,28 +33,23 @@ class CustomBottomNavigationBar extends StatelessWidget {
             layoutCubit.changePageIndexInCubit(pageIndex: index);
           },
           items:   [
-            // BottomNavigationBarItem(
-            //   icon: SvgPicture.asset(AppImages. ,
-            //   color: LayoutCubit.newPageIndex == 0 ? AppColors.mainColor : AppColors.greyColor,
-            //   ),
-            //   label: 'Home',
-            // ),
-            // BottomNavigationBarItem(
-            //   icon:  SvgPicture.asset(AppImages.servicesIcon,
-            //     color: LayoutCubit.newPageIndex == 1 ? AppColors.mainColor : AppColors.greyColor,),
-            //   label: 'Services',
-            // ),
-            // BottomNavigationBarItem(
-            //   icon:  SvgPicture.asset(AppImages.favIcon,
-            //     color: LayoutCubit.newPageIndex == 2 ? AppColors.mainColor : AppColors.greyColor,
-            //   ),
-            //   label: 'Favorite',
-            // ),
-              BottomNavigationBarItem(
-              icon: Icon(Icons.person ,
-                color: LayoutCubit.newPageIndex == 3 ? AppColors.mainColor : AppColors.greyColor,
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(AppSvgs.userCircle,
+              color: LayoutCubit.newPageIndex == 0 ? AppColors.mainColor : AppColors.greyColor,
               ),
-              label: 'Account',
+              label: AppStrings.whoAmI,
+            ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(AppSvgs.countries,
+                color: LayoutCubit.newPageIndex == 1 ? AppColors.mainColor : AppColors.greyColor,
+              ),
+              label: AppStrings.countries,
+            ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(AppSvgs.service,
+                color: LayoutCubit.newPageIndex == 2 ? AppColors.mainColor : AppColors.greyColor,
+              ),
+              label: AppStrings.services,
             ),
           ],
         );

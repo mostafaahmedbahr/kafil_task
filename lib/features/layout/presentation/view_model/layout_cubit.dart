@@ -3,9 +3,11 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kafil_task/features/services/presentation/views/services_view.dart';
 
 
 import '../../../../core/utils/app_strings/app_strings.dart';
+import '../../../countries/presentation/views/countries_view.dart';
 import '../../data/repos/layout_repo.dart';
 import 'layout_states.dart';
 
@@ -31,8 +33,8 @@ class LayoutCubit extends Cubit<LayoutStates> {
       // const Services(),
       // const Fav(),
       Text("4"),
-      Text("5"),
-      Text("6"),
+      CountriesView(),
+      ServicesView(),
     ];
 
 

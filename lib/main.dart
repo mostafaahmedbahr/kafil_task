@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kafil_task/core/utils/app_colors/app_colors.dart';
+import 'package:kafil_task/features/layout/presentation/views/layout_view.dart';
 import 'package:kafil_task/features/register/presentation/views/register_view.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
@@ -9,6 +10,7 @@ import 'core/utils/app_services/remote_services/service_locator.dart';
 import 'core/utils/bloc_observer.dart';
 import 'features/layout/data/repos/layout_repo_implementation.dart';
 import 'features/layout/presentation/view_model/layout_cubit.dart';
+import 'features/login/presentation/login_view.dart';
 import 'features/services/presentation/views/services_view.dart';
 
 void main() async {
@@ -33,12 +35,12 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         theme: ThemeData(
-          scaffoldBackgroundColor:AppColors.whiteColor,
+          // scaffoldBackgroundColor:AppColors.whiteColor,
           fontFamily: "Montserrat"
         ),
         title: 'Task',
         debugShowCheckedModeBanner: false,
-        home: const ServicesView(),
+        home: const LoginView(),
         builder: (context, child) => ResponsiveWrapper.builder(
           BouncingScrollWrapper.builder(context, child!),
           maxWidth: 1200,
