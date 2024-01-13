@@ -14,7 +14,7 @@ class RegisterView extends StatelessWidget {
           backgroundColor: AppColors.whiteColor,
       appBar: CustomAppBar(
         title: AppStrings.register,
-        isLoginScreen: true,
+        isLoginScreen: false,
       ),
           body: RegisterViewBody(),
     ));

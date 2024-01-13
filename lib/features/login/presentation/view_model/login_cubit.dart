@@ -36,4 +36,11 @@ class LoginCubit extends Cubit<LoginStates> {
     emit(ChangeSuffixIconState());
   }
 
+  bool isVisible2 = true;
+  void changeSuffixIcon2()
+  {
+    isVisible2 =! isVisible2;
+    emit(ChangeSuffixIconState2());
+  }
+
 }

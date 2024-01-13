@@ -32,7 +32,6 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
         builder: (context , state){
 
           if(state is GetProfileDataSuccessState){
-            print(state.profileModel.data!.favoriteSocialMedia![0]);
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: SingleChildScrollView(
@@ -60,10 +59,6 @@ class _ProfileViewBodyState extends State<ProfileViewBody> {
                       ),
                     ),
                     const SizedBox(height: 32,),
-
-
-
-
                    Row(
                      children: [
                        Expanded(

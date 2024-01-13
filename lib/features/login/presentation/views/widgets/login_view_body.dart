@@ -13,6 +13,7 @@ import 'package:kafil_task/core/utils/app_styles/app_styles.dart';
 import 'package:kafil_task/features/layout/presentation/views/layout_view.dart';
 import 'package:kafil_task/features/login/presentation/view_model/login_cubit.dart';
 import 'package:kafil_task/features/login/presentation/view_model/login_states.dart';
+import 'package:kafil_task/features/register/presentation/views/register_view.dart';
 
 import '../../../../../core/utils/new_toast/new_toast.dart';
 
@@ -143,7 +144,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       children: [
                         const Text("Don’t have an account ? "),
                         InkWell(
-                          onTap: (){},
+                          onTap: (){
+                            AppNav.customNavigator(context: context,
+                                screen: const RegisterView(),
+                                finish: false);
+                          },
                           child: const Text(AppStrings.register,
                             style: TextStyle(
                               color: AppColors.mainColor,
