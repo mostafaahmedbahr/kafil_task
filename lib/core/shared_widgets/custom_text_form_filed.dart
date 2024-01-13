@@ -48,6 +48,7 @@ class CustomTextFormField extends StatelessWidget {
       keyboardType: keyboardType ?? TextInputType.text,
       style: const TextStyle(
         color: AppColors.blackColor,
+        fontSize: 16
       ),
       validator: validator,
       decoration: InputDecoration(
