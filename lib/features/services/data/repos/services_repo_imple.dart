@@ -6,6 +6,7 @@ import 'package:kafil_task/features/services/data/repos/services_repo.dart';
 
 import '../../../../core/utils/app_services/remote_services/api_service.dart';
 import '../../../../core/utils/app_services/remote_services/endpoints.dart';
+import '../models/popular_services_model.dart';
 
 class ServicesRepoImpl implements ServicesRepo {
   final ApiService? apiService;
@@ -19,6 +20,27 @@ class ServicesRepoImpl implements ServicesRepo {
         endPoint: EndPoints.servicesUrl,
       );
       var result= ServicesModel.fromJson(response.data);
+      return right(result);
+    } catch(e)
+    {
+      if(e is DioException)
+      {
+        return left(ServerFailure.fromDioError(e));
+      }else{
+        return left(ServerFailure(e.toString()));
+      }
+
+    }
+  }
+
+
+  @override
+  Future<Either<Failure, PopularServicesModel>> getAllPopularServices() async{
+    try {
+      var response = await apiService!.get(
+        endPoint: EndPoints.popularServicesUrl,
+      );
+      var result= PopularServicesModel.fromJson(response.data);
       return right(result);
     } catch(e)
     {

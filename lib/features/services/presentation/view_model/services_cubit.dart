@@ -22,4 +22,15 @@ class ServicesCubit extends Cubit<ServicesStates> {
       emit(GetAllServicesDataSuccessState(data));
     });
   }
+
+  Future<void> getAllPopularServicesData() async {
+    emit(GetAllPopularServicesDataLoadingState());
+    var result = await servicesRepo!.getAllPopularServices();
+    return result.fold((failure) {
+      emit(GetAllPopularServicesDataErrorState(failure.errMessage));
+      print(failure.errMessage);
+    }, (data) {
+      emit(GetAllPopularServicesDataSuccessState(data));
+    });
+  }
 }
