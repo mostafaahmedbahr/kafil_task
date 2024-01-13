@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 
+import '../local_services/cache_helper.dart';
 import '../local_services/cache_keys.dart';
 import 'endpoints.dart';
 
@@ -38,6 +39,8 @@ class ApiService {
        "Accept":"application/json",
       "Accept-Language" : "ar",
       "Content-Type": "application/json",
+      if(CacheHelper.getData(key: "accessToken").toString() != "")
+      "Authorization" : "${CacheHelper.getData(key: "accessToken")}"
     };
     var response = await _dio.get(
       '${EndPoints.baseUrl}$endPoint',

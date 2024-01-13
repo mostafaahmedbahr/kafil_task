@@ -4,5 +4,6 @@ class EndPoints {
   static const servicesUrl = "api/test/service";
   static const popularServicesUrl = "api/test/service/popular";
   static const countriesUrl = "api/test/country";
+  static const profileUrl = "api/test/user/who-am-i";
 
 }
