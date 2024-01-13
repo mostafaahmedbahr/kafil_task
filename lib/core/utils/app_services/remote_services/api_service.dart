@@ -16,6 +16,7 @@ class ApiService {
   }) async {
     _dio.options.headers = {
       "Accept":"application/json",
+      "Accept-Language" : "ar",
       "Content-Type": "application/json",
     };
     var response = await _dio.post(
