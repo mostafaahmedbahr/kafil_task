@@ -4,6 +4,8 @@ import 'package:kafil_task/core/utils/app_colors/app_colors.dart';
 import 'package:kafil_task/features/layout/presentation/views/layout_view.dart';
 import 'package:kafil_task/features/login/presentation/view_model/login_cubit.dart';
 import 'package:kafil_task/features/register/presentation/views/register_view.dart';
+import 'package:kafil_task/features/services/data/repos/services_repo_imple.dart';
+import 'package:kafil_task/features/services/presentation/view_model/services_cubit.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:responsive_framework/utils/scroll_behavior.dart';
 import 'core/utils/app_services/local_services/cache_helper.dart';
@@ -34,9 +36,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
             create: (context) => LoginCubit(getIt.get<LoginRepoImpl>())),
-
         BlocProvider(
             create: (context) => LayoutCubit(getIt.get<LayoutRepoImpl>())),
+
       ],
       child: MaterialApp(
         theme: ThemeData(

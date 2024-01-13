@@ -35,6 +35,8 @@ class ApiService {
     Map<String, dynamic>? query,
   }) async {
     _dio.options.headers = {
+       "Accept":"application/json",
+      "Accept-Language" : "ar",
       "Content-Type": "application/json",
     };
     var response = await _dio.get(

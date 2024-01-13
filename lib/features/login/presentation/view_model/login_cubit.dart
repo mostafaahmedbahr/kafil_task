@@ -24,6 +24,7 @@ class LoginCubit extends Cubit<LoginStates> {
       CacheHelper.saveData(key: "id", value: data.data!.id);
       CacheHelper.saveData(key: "email", value: data.data!.email);
       CacheHelper.saveData(key: "about", value: data.data!.about);
+      CacheHelper.saveData(key: "accessToken", value: data.accessToken);
       emit(LoginSuccessState());
     });
   }
