@@ -15,7 +15,7 @@ class NextButton extends StatelessWidget {
         btnText: const Text(AppStrings.next,
         style: AppStyles.textStyle15White500,),
         onPressed: (){
-        AppNav.customNavigator(context: context, screen: RegisterViewBody2(), finish: false);
+        AppNav.customNavigator(context: context, screen: const RegisterViewBody2(), finish: false);
         },
     );
   }

@@ -19,27 +19,33 @@ class RegisterRepoImpl implements RegisterRepo {
     required String email ,
     required String password,
     required String confirmPassword,
-    required int userType,
+    required String userType,
+    required dynamic image  ,
+    required String about,
+    required String salary,
+    required String birthDate,
+    required List socialMedia,
   }) async {
     try {
       var response = await apiService!.postData(
           endPoint: EndPoints.registerUrl,
-          data: {
-            "first_name": firstName,
-            "last_name": lastName,
+          data:
+          FormData.fromMap({
+            "first_name": "firstName",
+            "last_name": "lastName",
             "about": "about",
-            "tags": "tags",
-            "favorite_social_media": "favorite_social_media",
-            "salary": "salary",
-            "password": password,
-            "email": email,
-            "birth_date": "birth_date",
-            "gender": "gender",
-            "type": "type",
-            "avatar": "avatar",
-            "password_confirmation": confirmPassword,
-
-          });
+            "tags[]": [1],
+            "favorite_social_media[]": ['facebook'],
+            "salary": 15000,
+            "password": "password",
+            "email": "email",
+            "birth_date": "birthDate",
+            "gender": true,
+            "type": 1,
+            "avatar": image==null ? null : await MultipartFile.fromFile(image),
+            "password_confirmation": "password",
+          })
+         );
       var result=RegisterModel.fromJson(response.data);
       return right(result);
     } catch(e)

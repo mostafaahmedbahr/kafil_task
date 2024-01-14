@@ -9,8 +9,12 @@ abstract class RegisterRepo{
     required String email ,
     required String password,
     required String confirmPassword,
-    required int userType,
-
+    required String userType,
+    required String image  ,
+    required String about,
+    required String salary,
+    required String birthDate,
+    required List socialMedia,
 
   });
 

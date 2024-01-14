@@ -15,6 +15,8 @@ import 'features/layout/data/repos/layout_repo_implementation.dart';
 import 'features/layout/presentation/view_model/layout_cubit.dart';
 import 'features/login/data/repos/login_repo_imple.dart';
 import 'features/login/presentation/login_view.dart';
+import 'features/register/data/repos/register_repo_imple.dart';
+import 'features/register/presentation/view_model/register_cubit.dart';
 import 'features/services/presentation/views/services_view.dart';
 
 void main() async {
@@ -36,6 +38,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
             create: (context) => LoginCubit(getIt.get<LoginRepoImpl>())
+        ),
+        BlocProvider(
+          create: (context) => RegisterCubit(getIt.get<RegisterRepoImpl>()),
         ),
         BlocProvider(
             create: (context) => LayoutCubit(getIt.get<LayoutRepoImpl>())),
