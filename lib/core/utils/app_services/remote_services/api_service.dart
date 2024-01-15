@@ -18,7 +18,7 @@ class ApiService {
     _dio.options.headers = {
       "Accept":"application/json",
       "Accept-Language" : "ar",
-      "Content-Type": "application/json",
+      "Content-Type": "multipart/form-data",
     };
     var response = await _dio.post(
       "${EndPoints.baseUrl}$endPoint",

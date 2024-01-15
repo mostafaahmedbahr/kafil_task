@@ -37,7 +37,7 @@ class Data {
   String? birthDate;
   int? gender;
   Type? type;
-  String? avatar;
+  dynamic avatar;
 
   Data(
       {this.id,

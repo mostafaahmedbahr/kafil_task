@@ -16,34 +16,39 @@ class RegisterRepoImpl implements RegisterRepo {
   Future<Either<Failure, RegisterModel>> register({
     required String firstName ,
     required String lastName ,
+    required String about,
+    required List<int> tags,
+    required List socialMedia,
     required String email ,
     required String password,
     required String confirmPassword,
-    required String userType,
+    required int userType,
+    required bool gender,
     required dynamic image  ,
-    required String about,
-    required String salary,
+    required int salary,
     required String birthDate,
-    required List socialMedia,
   }) async {
     try {
       var response = await apiService!.postData(
           endPoint: EndPoints.registerUrl,
           data:
           FormData.fromMap({
-            "first_name": "firstName",
-            "last_name": "lastName",
-            "about": "about",
-            "tags[]": [1],
-            "favorite_social_media[]": ['facebook'],
-            "salary": 15000,
-            "password": "password",
-            "email": "email",
-            "birth_date": "birthDate",
-            "gender": true,
-            "type": 1,
-            "avatar": image==null ? null : await MultipartFile.fromFile(image),
-            "password_confirmation": "password",
+            "first_name": firstName,
+            "last_name": lastName,
+            "about": about,
+            "tags[]": tags,
+            "favorite_social_media[]": socialMedia,
+            "salary": salary,
+            "password": password,
+            "email": email,
+            "birth_date": birthDate,
+            "gender": gender,
+            "type": userType,
+            'avatar': await MultipartFile.fromFile(
+                image!.path??"",
+                filename: image?.path.split('/').last
+            ),
+            "password_confirmation": password,
           })
          );
       var result=RegisterModel.fromJson(response.data);

@@ -6,15 +6,17 @@ abstract class RegisterRepo{
   Future<Either<Failure,RegisterModel>> register({
     required String firstName ,
     required String lastName ,
+    required String about,
+    required List<int> tags,
+    required List socialMedia,
     required String email ,
     required String password,
     required String confirmPassword,
-    required String userType,
-    required String image  ,
-    required String about,
-    required String salary,
+    required int userType,
+    required bool gender,
+    required dynamic image  ,
+    required int salary,
     required String birthDate,
-    required List socialMedia,
 
   });
 

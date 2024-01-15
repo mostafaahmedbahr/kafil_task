@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -422,20 +423,39 @@ class _RegisterViewBody2State extends State<RegisterViewBody2> {
                         "Submit",
                         style: AppStyles.textStyle15White500,
                       ),
-                      onPressed: () {
+                      onPressed: () async {
+
                         RegisterCubit.get(context).register(
-                            firstName:RegisterCubit.get(context).firstNameCon.text,
-                            lastName: RegisterCubit.get(context).lastNameCon.text,
-                          about: RegisterCubit.get(context).aboutCon.text,
-                          socialMedia: RegisterCubit.get(context).socialMediaList,
-                          salary: RegisterCubit.get(context).salaryCon.text,
-                          password:RegisterCubit.get(context). passwordCon.text,
-                            email: RegisterCubit.get(context).emailCon.text,
-                          birthDate: RegisterCubit.get(context).selectedGender.toString(),
-                            confirmPassword:RegisterCubit.get(context).configPasswordCon.text,
-                            userType: RegisterCubit.get(context).selectedGender.toString(),
-                            image: RegisterCubit.get(context).file ==null ? null : RegisterCubit.get(context).file!.path  ,
+                          firstName:"RegisterCubit.get(context).firstNameCon.text",
+                          lastName: "RegisterCubit.get(context).lastNameCon.text",
+                          about:" RegisterCubit.get(context).aboutCon.text",
+                          tags: [1],
+                          socialMedia: ["facebook"],
+                          salary: 100,
+                          password:"RegisterCubit.get(context). passwordCon.text",
+                          email: "RegisterCubit.get(context).emailCon.text",
+                          birthDate: "1995-03-15",
+                          userType: 1,
+                          gender: true,
+                          confirmPassword:"RegisterCubit.get(context). passwordCon.text",
+                          image: await MultipartFile.fromFile(
+                            RegisterCubit.get(context).file!.path,
+                            filename: RegisterCubit.get(context).file!.path.split('/').last,
+                          ),
                         );
+                        // RegisterCubit.get(context).register(
+                        //     firstName:RegisterCubit.get(context).firstNameCon.text,
+                        //     lastName: RegisterCubit.get(context).lastNameCon.text,
+                        //   about: RegisterCubit.get(context).aboutCon.text,
+                        //   socialMedia: RegisterCubit.get(context).socialMediaList,
+                        //   salary: RegisterCubit.get(context).salaryCon.text,
+                        //   password:RegisterCubit.get(context). passwordCon.text,
+                        //     email: RegisterCubit.get(context).emailCon.text,
+                        //   birthDate: RegisterCubit.get(context).selectedGender.toString(),
+                        //     confirmPassword:RegisterCubit.get(context).configPasswordCon.text,
+                        //     userType: RegisterCubit.get(context).selectedGender.toString(),
+                        //     image: RegisterCubit.get(context).file ==null ? null : RegisterCubit.get(context).file!.path  ,
+                        // );
                       },
                     ),
                   ],
